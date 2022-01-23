@@ -1,0 +1,67 @@
+[
+  {
+    "id": "the-wes-tape",
+    "wes": true,
+    "name": "The Wes Tape",
+    "cover": "/westapecover.jpg",
+    "releaseDate": "2021-09-23T05:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/album=436177158/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://coreyarnell.bandcamp.com/album/the-wes-tape"
+  },
+  {
+    "id": "unbothered",
+    "wes": true,
+    "name": "Unbothered (feat. Chris Winston)",
+    "cover": "/unbotheredcover.jpg",
+    "releaseDate": "2021-09-21T05:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/track=1031440882/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://coreyarnell.bandcamp.com/track/unbothered-feat-chris-winston-2"
+  },
+  {
+    "id": "excellent",
+    "wes": false,
+    "name": "Excellent",
+    "cover": "/excellentcover.jpg",
+    "releaseDate": "2019-09-22T05:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/album=4123910096/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://coreyarnell.bandcamp.com/album/excellent",
+    "soundcloud": "https://soundcloud.com/wesclinton/sets/excellent"
+  },
+  {
+    "id": "tape-with-beats",
+    "wes": false,
+    "name": "A Tape With Beats On It",
+    "cover": "/tapewithbeatscover.jpg",
+    "releaseDate": "2019-02-11T06:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/album=2401470273/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://coreyarnell.bandcamp.com/album/a-tape-with-beats-on-it"
+  },
+  {
+    "id": "superb",
+    "wes": false,
+    "name": "Superb",
+    "cover": "/superbcover.jpg",
+    "releaseDate": "2018-12-14T06:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/album=1413079885/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://coreyarnell.bandcamp.com/album/superb",
+    "soundcloud": "https://soundcloud.com/wesclinton/sets/superb"
+  },
+  {
+    "id": "untitled-sessions",
+    "wes": false,
+    "name": "Untitled Sessions",
+    "cover": "/untitledsessionscover.jpg",
+    "releaseDate": "2018-09-30T05:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/album=2955723555/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://coreyarnell.bandcamp.com/album/untitled-sessions"
+  },
+  {
+    "id": "my-brain-grew-legs",
+    "wes": true,
+    "name": "My Brain Grew Legs and Walked Away",
+    "cover": "/mybraingrewlegscover.jpg",
+    "releaseDate": "2018-06-10T05:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/album=3139087307/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://coreyarnell.bandcamp.com/album/my-brain-grew-legs-and-walked-away"
+  }
+]

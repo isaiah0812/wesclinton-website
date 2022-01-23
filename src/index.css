@@ -1,3 +1,13 @@
+.wes-clinton {
+  color: #38c40a;
+  background-color: #18181a;
+}
+
+.corey-arnell {
+  color: #242c91;
+  background-color: #e6e6e6;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +20,57 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: lightgreen black;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: black
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: lightgreen;
+}
+
+.player-cover {
+  width: 20%;
+}
+
+.player-bandcamp {
+  width: 40%;
+  height: 40vh;
+}
+
+@media (max-width: 1000px) {
+  .player-bandcamp {
+    width: 55%;
+    height: 29vh
+  }
+}
+
+@media (max-width: 450px) {
+  .player-cover {
+    width: 70%
+  }
+
+  .player-bandcamp {
+    width: 80%
+  }
+}
+
+@media (max-width: 400px) {
+  .player-bandcamp {
+    width: 100%;
+    height: 50vh;
+  }
+  .player-cover {
+    width: 0%
+  }
 }
