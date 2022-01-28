@@ -6,8 +6,8 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../../App";
 
 const Music = ({ project }) => {
-  const {theme } = useContext(ThemeContext)
-  const [selected, setSelected] = useState(project ? project : music[0])
+  const { theme } = useContext(ThemeContext)
+  const [selected, setSelected] = useState(project ? project : (music.filter(project => theme.id === 'wes-clinton' ? project.wes : !project.wes)).at(0))
 
   const handleSelect = (id) => {
     setSelected(music.find(project => project.id === id))
@@ -44,7 +44,7 @@ const Music = ({ project }) => {
         </div>
       </FluidContainer>
       <Container fluid style={{ padding: '2%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
-        {music.filter(project => project.id !== selected.id).map((project) => <MusicCard key={project.id} id={project.id} cover={project.cover} name={project.name} onClick={() => handleSelect(project.id)} />)}
+        {music.filter(project => theme.id === 'wes-clinton' ? project.wes : !project.wes).filter(project => project.id !== selected.id).map((project) => <MusicCard key={project.id} id={project.id} cover={project.cover} name={project.name} onClick={() => handleSelect(project.id)} />)}
       </Container>
     </FluidContainer>
   )

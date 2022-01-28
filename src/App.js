@@ -5,7 +5,7 @@ import Menu from './components/utils/Menu';
 import { Routes, Route } from 'react-router-dom';
 import Music from './components/pages/Music';
 import Merchandise from './components/pages/Merchandise';
-import { createContext } from 'react';
+import { createContext, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -61,6 +61,7 @@ export const ThemeContext = createContext({
 
 const EntryPicker = () => {
   const { setTheme } = useContext(ThemeContext)
+  const { setProject } = useContext(MusicContext)
 
   const [coreyWidth, setCoreyWidth] = useState('50%')
   const [coreyFontSize, setCoreyFontSize] = useState('2vw')
@@ -103,12 +104,14 @@ const EntryPicker = () => {
 
   const handleCoreySelect = () => {
     setTheme(themes.coreyArnell)
+    setProject(music.find(project => !project.wes))
 
     window.sessionStorage.setItem('wes', 'false')
   }
 
   const handleWesSelect =() => {
     setTheme(themes.wesClinton)
+    setProject(music.find(project => project.wes))
 
     window.sessionStorage.setItem('wes', 'true')
   }
@@ -182,7 +185,7 @@ const App = () => {
         : themes.coreyArnell
   )
 
-  const [project, setProject] = useState(music[0])
+  const [project, setProject] = useState(music.find(project => theme.id === 'wes-clinton' ? project.wes : !project.wes))
 
   return (
     <ThemeContext.Provider value={{theme: theme, setTheme: setTheme}}>
