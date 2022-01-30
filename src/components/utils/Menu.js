@@ -1,6 +1,8 @@
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { useState } from "react";
-import { Button, Container, Nav, Offcanvas } from "react-bootstrap";
+import { Button, Container, Image, Nav, Offcanvas } from "react-bootstrap";
 import { ThemeContext } from "../../App";
 
 const pages = [
@@ -27,8 +29,8 @@ const MenuItem = ({name, href}) => {
   const handleLeave = () => setHover(theme.primary)
 
   return (
-    <Nav.Item onMouseEnter={handleHover} onMouseLeave={handleLeave}>
-      <Nav.Link href={href} style={{color: hover}}>
+    <Nav.Item onMouseEnter={handleHover} onMouseLeave={handleLeave} style={{ marginBottom: 5 }}>
+      <Nav.Link href={href} style={{color: hover, fontSize: '1.55em'}}>
         {name}
       </Nav.Link>
     </Nav.Item>
@@ -39,19 +41,57 @@ const Menu = () => {
   const { theme } = useContext(ThemeContext)
   
   const [show, setShow] = useState(false);
+  const [closeColor, setCloseColor] = useState(theme.primary);
+  const [menuColor, setMenuColor] = useState(theme.white)
+
+  const handleCloseHover = () => setCloseColor(theme.hoverPrimary);
+  const handleCloseLeave = () => setCloseColor(theme.primary);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleMenuHover = () => setMenuColor(theme.gray);
+  const handleMenuLeave = () => setMenuColor(theme.white);
+
   return (
     <Container fluid style={{zIndex: 2, top: 0, position: 'fixed', display: 'flex', justifyContent: 'flex-end', padding: '1%'}}>
-      <Button onClick={handleShow}>Menu</Button>
+      <FontAwesomeIcon
+        icon={faBars}
+        onClick={handleShow}
+        style={{
+          color: menuColor,
+          height: '3.1em',
+          width: '3.1em',
+          transition: 'color 0.2s',
+          cursor: 'pointer'
+        }}
+        onMouseEnter={handleMenuHover}
+        onMouseLeave={handleMenuLeave}
+      />
       <Offcanvas show={show} onHide={handleClose} placement="top" scroll style={{backgroundColor: theme.secondary}}>
-        <Offcanvas.Header closeButton closeVariant={theme.id === 'wes-clinton' ? 'white' : undefined} style={{textAlign: 'center', color: theme.primary}}>
-          <Offcanvas.Title>Wes Clinton</Offcanvas.Title>
+        <Offcanvas.Header style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+          <Image src="/WesClintonLogo.PNG" style={{ width: '10vw', minWidth: 100, maxWidth: 200, position: 'fixed', top: 0 }}/>
+          <FontAwesomeIcon 
+            icon={faTimes} 
+            style={{ 
+              color: closeColor,
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              alignSelf: 'flex-end',
+              height: '2em',
+              width: '2em',
+              margin: '1%',
+              cursor: 'pointer',
+              transition: 'color 0.2s',
+            }} 
+            onClick={handleClose}
+            onMouseEnter={handleCloseHover}
+            onMouseLeave={handleCloseLeave}
+          />
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Nav justify style={{display: 'flex', flexDirection: 'column'}}>
+          <Nav justify style={{ display: 'flex', flexDirection: 'column' }}>
             {pages.map((page, index) => <MenuItem key={index} name={page.name} href={page.href} />)}
           </Nav>
         </Offcanvas.Body>

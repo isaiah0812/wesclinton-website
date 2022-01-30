@@ -16,15 +16,16 @@ export const commonColors = {
   white: '#ffffff',
   red: '#ff0000',
   blue: '#0000ff',
-  green: '#00ff00'
+  green: '#00ff00',
+  gray: '#cccccc',
 }
 
 const themes = {
   wesClinton: {
     ...commonColors,
     id: 'wes-clinton',
-    primary: '#38c40a',
-    secondary: '#18181a',
+    primary: '#63218f',
+    secondary: '#0b0b0b',
     tertiary: commonColors.black,
     borderColor: '#212124',
     hoverPrimary: '#228b22',
@@ -37,8 +38,8 @@ const themes = {
   coreyArnell: {
     ...commonColors,
     id: 'corey-arnell',
-    primary: '#242c91',
-    secondary: '#e6e6e6',
+    primary: '#0bf709',
+    secondary: '#969aa5',
     tertiary: '#c4c4c4',
     borderColor: '#212124',
     hoverPrimary: '#26adbf',
@@ -191,7 +192,7 @@ const App = () => {
     <ThemeContext.Provider value={{theme: theme, setTheme: setTheme}}>
       <MusicContext.Provider value={{project: project, setProject: setProject}}>
         {theme ? (
-            <FluidContainer className={theme.id === 'wes-clinton' ? 'wes-clinton' : 'corey-arnell'} fluid style={{ minHeight: '100vh' }}>
+            <FluidContainer fluid style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.secondary }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/music" element={<Music project={project} />} />

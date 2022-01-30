@@ -1,13 +1,3 @@
-.wes-clinton {
-  color: #38c40a;
-  background-color: #18181a;
-}
-
-.corey-arnell {
-  color: #242c91;
-  background-color: #e6e6e6;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -24,7 +14,7 @@ code {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: lightgreen black;
+  scrollbar-color: #0bf709 #63218f;
 }
 
 ::-webkit-scrollbar {
@@ -32,11 +22,11 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: black
+  background-color: #63218f
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: lightgreen;
+  background-color: #0bf709;
 }
 
 .player-cover {
