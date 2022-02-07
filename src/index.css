@@ -64,3 +64,12 @@ code {
     width: 0%
   }
 }
+
+#custom-switch {
+  background-color: #0bf709;
+  border-color: transparent;
+}
+
+#custom-switch:checked {
+  background-color: #63218f;
+}

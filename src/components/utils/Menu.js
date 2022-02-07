@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { Button, Container, Image, Nav, Offcanvas } from "react-bootstrap";
 import { ThemeContext } from "../../App";
+import { ThemeSwitch } from "./ThemeSwitch"
 
 const pages = [
   {
@@ -55,6 +56,7 @@ const Menu = () => {
 
   return (
     <Container fluid style={{zIndex: 2, top: 0, position: 'fixed', display: 'flex', justifyContent: 'flex-end', padding: '1%'}}>
+      <ThemeSwitch />
       <FontAwesomeIcon
         icon={faBars}
         onClick={handleShow}

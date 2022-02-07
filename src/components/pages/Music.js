@@ -2,15 +2,19 @@ import { Container, Image } from "react-bootstrap";
 import FluidContainer from "../utils/FluidContainer";
 import music from '../../data/music.json';
 import MusicCard from "../utils/MusicCard";
-import { useContext, useState } from "react";
-import { ThemeContext } from "../../App";
+import { useContext } from "react";
+import { MusicContext, ThemeContext } from "../../App";
 
-const Music = ({ project }) => {
+const Music = () => {
   const { theme } = useContext(ThemeContext)
-  const [selected, setSelected] = useState(project ? project : (music.filter(project => theme.id === 'wes-clinton' ? project.wes : !project.wes)).at(0))
+  const { project: selected, setProject } = useContext(MusicContext)
+
+  const changeProject = (project) => {
+    setProject(project)
+  }
 
   const handleSelect = (id) => {
-    setSelected(music.find(project => project.id === id))
+    changeProject(music.find(project => project.id === id))
     window.scrollTo({
       top: 0,
       behavior: 'smooth'

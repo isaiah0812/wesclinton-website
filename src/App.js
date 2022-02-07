@@ -57,11 +57,12 @@ export const MusicContext = createContext({
 })
 export const ThemeContext = createContext({
   theme: themes.wesClinton,
-  setTheme: () => {}
+  saveTheme: () => {},
+  switchTheme: () => {}
 })
 
 const EntryPicker = () => {
-  const { setTheme } = useContext(ThemeContext)
+  const { saveTheme } = useContext(ThemeContext)
   const { setProject } = useContext(MusicContext)
 
   const [coreyWidth, setCoreyWidth] = useState('50%')
@@ -104,14 +105,14 @@ const EntryPicker = () => {
   }
 
   const handleCoreySelect = () => {
-    setTheme(themes.coreyArnell)
+    saveTheme(themes.coreyArnell)
     setProject(music.find(project => !project.wes))
 
     window.sessionStorage.setItem('wes', 'false')
   }
 
   const handleWesSelect =() => {
-    setTheme(themes.wesClinton)
+    saveTheme(themes.wesClinton)
     setProject(music.find(project => project.wes))
 
     window.sessionStorage.setItem('wes', 'true')
@@ -188,14 +189,31 @@ const App = () => {
 
   const [project, setProject] = useState(music.find(project => theme.id === 'wes-clinton' ? project.wes : !project.wes))
 
+  const saveTheme = (newTheme) => {
+    setTheme(newTheme)
+    window.sessionStorage.setItem('wes', newTheme.id === 'wes-clinton' ? 'true' : 'false')
+  }
+
+  const switchTheme = () => {
+    if (theme.id === 'wes-clinton') {
+      // Change to Corey [Arnell]
+      saveTheme(themes.coreyArnell)
+      setProject(music.find(project => !project.wes))
+    } else {
+      // Change to Wes Clinton
+      saveTheme(themes.wesClinton)
+      setProject(music.find(project => project.wes))
+    }
+  }
+
   return (
-    <ThemeContext.Provider value={{theme: theme, setTheme: setTheme}}>
+    <ThemeContext.Provider value={{ theme, saveTheme, switchTheme }}>
       <MusicContext.Provider value={{project: project, setProject: setProject}}>
         {theme ? (
             <FluidContainer fluid style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.secondary }}>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/music" element={<Music project={project} />} />
+                <Route path="/music" element={<Music />} />
                 <Route path="/merch" element={<Merchandise />} />
               </Routes>
               <Menu />
