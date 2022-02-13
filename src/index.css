@@ -68,8 +68,27 @@ code {
 #custom-switch {
   background-color: #0bf709;
   border-color: transparent;
+  width: 5em;
+  height: 2.5em;
+  margin-right: 1em;
+  padding: 0.8em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#custom-switch::before {
+  color: black;
+  content: "W";
 }
 
 #custom-switch:checked {
   background-color: #63218f;
+  align-items: flex-start;
+}
+
+#custom-switch:checked::before {
+  color: white;
+  content: "C";
 }
