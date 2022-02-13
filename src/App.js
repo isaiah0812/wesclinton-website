@@ -5,7 +5,7 @@ import Menu from './components/utils/Menu';
 import { Routes, Route } from 'react-router-dom';
 import Music from './components/pages/Music';
 import Merchandise from './components/pages/Merchandise';
-import { createContext, useEffect } from 'react';
+import { createContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { useContext } from 'react';
