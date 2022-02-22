@@ -2,7 +2,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { useState } from "react";
-import { Button, Container, Image, Nav, Offcanvas } from "react-bootstrap";
+import { Container, Image, Nav, Offcanvas } from "react-bootstrap";
 import { ThemeContext } from "../../App";
 import { ThemeSwitch } from "./ThemeSwitch"
 
@@ -72,7 +72,7 @@ const Menu = () => {
       />
       <Offcanvas show={show} onHide={handleClose} placement="top" scroll style={{backgroundColor: theme.secondary}}>
         <Offcanvas.Header style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Image src="/WesClintonLogo.PNG" style={{ width: '10vw', minWidth: 100, maxWidth: 200, position: 'fixed', top: 0 }}/>
+          <Image src={theme.id === 'wes-clinton' ? "/WesClintonLogo.PNG" : "/CoreyArnellLogo.png"} style={{ width: '10vw', minWidth: 100, maxWidth: 200, position: 'fixed', top: 0 }}/>
           <FontAwesomeIcon 
             icon={faTimes} 
             style={{ 
