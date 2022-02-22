@@ -58,9 +58,9 @@ const Home = () => {
         <h1>Merch ain't here yet, baby. Be patient.</h1>
       </Container>
       <Container fluid style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap' }}>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CY71OQktDuK/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style={{ background: '#FFFFFF', border: 0, borderRadius: 3, boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin: 1, maxWidth: 540, minWidth: 326, padding: 0, width: '27em' }}>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CaLNa0XpkXT/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style={{ background: '#FFFFFF', border: 0, borderRadius: 3, boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin: 1, maxWidth: 540, minWidth: 326, padding: 0, width: '27em' }}>
           <div style={{ padding: 16 }}>
-            <a href="https://www.instagram.com/p/CY71OQktDuK/?utm_source=ig_embed&amp;utm_campaign=loading" style={{ background: "#FFFFFF", lineHeight: 0, padding: 0, textAlign: "center", textDecoration: "none", width: "100%" }} target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/p/CaLNa0XpkXT/?utm_source=ig_embed&amp;utm_campaign=loading" style={{ background: "#FFFFFF", lineHeight: 0, padding: 0, textAlign: "center", textDecoration: "none", width: "100%" }} target="_blank" rel="noreferrer">
               <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <div style={{ backgroundColor: '#F4F4F4', borderRadius: '50%', flexGrow: 0, height: 40, marginRight: 14, width: 40 }}></div>
                 <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center' }}>
@@ -106,7 +106,7 @@ const Home = () => {
               </div>
             </a>
             <p style={{ color: '#c9c8cd', fontFamily: 'Arial,sans-serif', fontSize: 14, lineHeight: 17, marginBottom: 0, marginTop: 8, overflow: 'hidden', padding: '8px 0px 7px', textAlign: 'center', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              <a href="https://www.instagram.com/p/CY71OQktDuK/?utm_source=ig_embed&amp;utm_campaign=loading" style={{ color: '#c9c8cd', fontFamily: 'Arial,sans-serif', fontSize: 14, fontStyle: 'normal', fontWeight: 'normal', lineHeight: 17, textDecoration: 'none' }} target="_blank" rel="noreferrer">A post shared by Wes & CoreyArnell! (@wesxclinton)</a>
+              <a href="https://www.instagram.com/p/CaLNa0XpkXT/?utm_source=ig_embed&amp;utm_campaign=loading" style={{ color: '#c9c8cd', fontFamily: 'Arial,sans-serif', fontSize: 14, fontStyle: 'normal', fontWeight: 'normal', lineHeight: 17, textDecoration: 'none' }} target="_blank" rel="noreferrer">A post shared by Wes & CoreyArnell! (@wesxclinton)</a>
             </p>
           </div>
         </blockquote>

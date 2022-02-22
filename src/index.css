@@ -1,10 +1,15 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.wes-clinton {
+  font-family: 'Shizuru', cursive;
+}
+
+.corey-arnell {
+  font-family: 'Press Start 2P', cursive;
 }
 
 code {
@@ -15,6 +20,7 @@ code {
 * {
   scrollbar-width: thin;
   scrollbar-color: #0bf709 #63218f;
+  /* font-family: 'Shizuru', cursive; */
 }
 
 ::-webkit-scrollbar {

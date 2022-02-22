@@ -31,7 +31,7 @@ const MenuItem = ({name, href}) => {
 
   return (
     <Nav.Item onMouseEnter={handleHover} onMouseLeave={handleLeave} style={{ marginBottom: 5 }}>
-      <Nav.Link href={href} style={{color: hover, fontSize: '1.55em'}}>
+      <Nav.Link className="glitch" href={href} style={{color: hover, fontSize: '1.55em'}}>
         {name}
       </Nav.Link>
     </Nav.Item>

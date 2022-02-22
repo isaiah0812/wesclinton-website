@@ -10,6 +10,7 @@ import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { useContext } from 'react';
 import music from './data/music.json'
+import { Footer } from './components/utils/Footer';
 
 export const commonColors = {
   black: '#000000',
@@ -210,12 +211,13 @@ const App = () => {
     <ThemeContext.Provider value={{ theme, saveTheme, switchTheme }}>
       <MusicContext.Provider value={{project: project, setProject: setProject}}>
         {theme ? (
-            <FluidContainer fluid style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.secondary }}>
+            <FluidContainer className={theme.id === 'wes-clinton' ? "wes-clinton" : "corey-arnell"} fluid style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.secondary }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/music" element={<Music />} />
                 <Route path="/merch" element={<Merchandise />} />
               </Routes>
+              <Footer />
               <Menu />
             </FluidContainer>
           ) : <EntryPicker />
