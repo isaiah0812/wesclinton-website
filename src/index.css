@@ -21,7 +21,6 @@ code {
 * {
   scrollbar-width: thin;
   scrollbar-color: #0bf709 #0068aa;
-  /* font-family: 'Shizuru', cursive; */
 }
 
 ::-webkit-scrollbar {
