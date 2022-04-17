@@ -1,4 +1,4 @@
-import { Button, Container, Image, Nav } from "react-bootstrap";
+import { Container, Image, Nav } from "react-bootstrap";
 import FluidContainer from "../utils/FluidContainer";
 import MusicCard from "../utils/MusicCard";
 import music from '../../data/music.json';
@@ -6,6 +6,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { useContext } from "react";
 import { MusicContext, ThemeContext } from "../../App";
 import { Helmet } from "react-helmet";
+import CButton from "../utils/CButton";
 
 const Home = () => {
   const { theme } = useContext(ThemeContext)
@@ -28,11 +29,12 @@ const Home = () => {
           alignContent: 'flex-end',
           flexDirection: 'column',
           justifyContent: 'end',
+          alignItems: 'center',
           textAlign: 'center',
           padding: '2%'
         }}>
           <h1>The Wes Tape</h1>
-          <Button style={{ width: '30%', alignSelf: 'center'}}>Listen Now</Button>
+          <CButton width="30%" text="Listen Now" />
         </div>
       </FluidContainer>
       <FluidContainer style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -50,8 +52,8 @@ const Home = () => {
               />
           )}
         </Container>
-        <Nav.Link href="/music" style={{ width: '50%' }}>
-          <Button style={{ width: '100%' }}>See All Music</Button>
+        <Nav.Link href="/music" style={{ width: '50%', position: 'relative' }}>
+          <CButton width="100%" text="See All Music" />
         </Nav.Link>
       </FluidContainer>
       <Container fluid style={{ textAlign: 'center', minHeight: '30vh', padding: '10%' }}>
@@ -111,7 +113,7 @@ const Home = () => {
           </div>
         </blockquote>
         {/* Implement IG API for  */}
-        <TwitterTimelineEmbed sourceType="profile" screenName="wes_clinton" options={{height: '75vh', width: '27em'}} theme={theme.id === 'wes-clinton' && "dark"} noScrollbar />
+        <TwitterTimelineEmbed sourceType="profile" screenName="wes_clinton" options={{height: '75vh', width: '27em'}} theme="dark" noScrollbar />
       </Container>
     </FluidContainer>
   )

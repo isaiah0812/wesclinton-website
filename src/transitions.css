@@ -1,0 +1,217 @@
+.glitch {
+  transform: scale(1.5);
+}
+
+.glitch:hover {
+  text-shadow: 
+    0.05em 0 0 rgba(255, 0, 0, 0.75),
+    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  animation: glitch 500ms linear 0ms infinite;
+}
+
+.glitch-static {
+  transform: scale(1.5);
+  text-shadow: 
+    0.05em 0 0 rgba(255, 0, 0, 0.75),
+    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  animation: glitch 500ms linear 0ms infinite;
+  position: relative;
+}
+
+.glitch-button {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.glitch-button::before, .glitch-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.glitch-button::before {
+  background-color: transparent;
+  z-index: -1;
+}
+
+.glitch-button::after {
+  background-color: transparent;
+  z-index: -2;
+}
+
+.glitch-button:hover {
+  /* box-shadow: 
+    0.25em 0 0 rgba(255, 0, 0, 0.75),
+    -0.225em -0.25em 0 rgba(0, 255, 0, 0.75),
+    0.225em 0.25em 0 rgba(0, 0, 255, 0.75);
+
+  animation: glitch-button 500ms linear 0ms infinite; */
+}
+
+.glitch-button:hover::before {
+  border: 4px solid rgba(0, 255, 255, 0.5);
+  animation: glitch-behind 300ms ease infinite;
+}
+
+.glitch-button:hover::after {
+  border: 4px solid rgba(255, 0, 255, 0.5);
+  animation: glitch-behind 750ms ease infinite reverse;
+}
+
+.glitch span, .glitch-static span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.glitch span:first-child, .glitch-static span:first-child {
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 30%);
+  opacity: 0.8;
+}
+
+.glitch span:first-child:hover {
+  animation: glitch 650ms linear 0ms infinite reverse;
+  transform: translate(-0.025em, -0.0125em);
+}
+
+.glitch span:last-child, .glitch-static span:first-child {
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  opacity: 0.8;
+}
+
+.glitch span:last-child:hover {
+  animation: glitch 375ms linear 0ms infinite alternate;
+  transform: translate(0.0125em, 0.025em);
+}
+
+.glitch-static span:first-child {
+  animation: glitch 650ms linear 0ms infinite reverse;
+  transform: translate(-0.025em, -0.0125em);
+}
+
+.glitch-static span:last-child {
+  animation: glitch 650ms linear 0ms infinite reverse;
+  transform: translate(0.0125em, 0.025em);
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 
+      0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 
+      0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: 
+      -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+@keyframes glitch-button {
+  0% {
+    box-shadow: 
+      0.25em 0 0 rgba(255, 0, 0, 0.75),
+      -0.25em -0.225em 0 rgba(0, 255, 0, 0.75),
+      -0.225em 0.25em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    box-shadow: 
+      0.25em 0 0 rgba(255, 0, 0, 0.75),
+      -0.25em -0.225em 0 rgba(0, 255, 0, 0.75),
+      -0.225em 0.25em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    box-shadow: 
+      -0.25em -0.225em 0 rgba(255, 0, 0, 0.75),
+      0.225em 0.225em 0 rgba(0, 255, 0, 0.75),
+      -0.25em -0.25em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    box-shadow: 
+      -0.25em -0.225em 0 rgba(255, 0, 0, 0.75),
+      0.225em 0.225em 0 rgba(0, 255, 0, 0.75),
+      -0.25em -0.25em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    box-shadow: 
+      0.225em 0.25em 0 rgba(255, 0, 0, 0.75),
+      0.25em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.25em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    box-shadow: 
+      0.225em 0.25em 0 rgba(255, 0, 0, 0.75),
+      0.25em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.25em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    box-shadow: 
+      -0.225em 0 0 rgba(255, 0, 0, 0.75),
+      -0.225em -0.225em 0 rgba(0, 255, 0, 0.75),
+      -0.225em -0.25em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+@keyframes glitch-behind {
+  0%   {transform: translate(-2px, 2px);}
+  24%   {transform: translate(-2px, 2px);}
+  25%  {transform: translate(-2px, -2px);}
+  50%  {transform: translate(-2px, -2px);}
+  50%  {transform: translate(2px, 2px);}
+  74%  {transform: translate(2px, 2px);}
+  75%  {transform: translate(2px, -2px);}
+  99%  {transform: translate(2px, -2px);}
+  100%  {transform: translate(-2px, 2px);}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}

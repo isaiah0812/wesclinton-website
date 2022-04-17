@@ -37,12 +37,16 @@ const Music = () => {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <h1 style={{fontSize: '3vw  '}}>{selected.name}</h1>
+          <h1 className={theme.id === 'wes-clinton' ? "glitch-static" : ""} style={{fontSize: '3vw'}}>
+            {theme.id === 'wes-clinton' && <span aria-hidden="true">{selected.name}</span>}
+            {selected.name}
+            {theme.id === 'wes-clinton' && <span aria-hidden="true">{selected.name}</span>}
+          </h1>
           <hr style={{ width: '50%', margin: '1% 0%', border: `2.5px solid ${theme.primary}`}} />
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
             <Image className="player-cover" src={selected.cover} style={{ height: 'auto', margin: showcaseMargins, alignSelf: 'center'}} />
             <iframe className="player-bandcamp" title="Bandcamp Player" style={{border: 0, margin: showcaseMargins, alignSelf: 'center'}} src={selected.bandcampEmbed} seamless>
-              <a href={selected.bandcampEmbed}>{selected.name} by {selected.wes ? "Wes Clinton" : "Corey [Arnell]"}</a>
+              <a href={selected.bandcampEmbed}>{selected.name} by {selected.wes ? "We$ Clinton" : "Corey [Arnell]"}</a>
             </iframe>
           </div>
         </div>

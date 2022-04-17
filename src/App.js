@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import music from './data/music.json'
 import { Footer } from './components/utils/Footer';
+import './transitions.css'
 
 export const commonColors = {
   black: '#000000',
@@ -25,9 +26,9 @@ const themes = {
   wesClinton: {
     ...commonColors,
     id: 'wes-clinton',
-    primary: '#63218f',
-    secondary: '#0b0b0b',
-    tertiary: commonColors.black,
+    primary: '#0bf709',
+    secondary: '#652293',
+    tertiary: '#0b0b0b',
     borderColor: '#212124',
     hoverPrimary: '#228b22',
     primaryRGB: 'rgb(56, 196, 10)',
@@ -39,11 +40,12 @@ const themes = {
   coreyArnell: {
     ...commonColors,
     id: 'corey-arnell',
-    primary: '#0bf709',
-    secondary: '#969aa5',
-    tertiary: '#c4c4c4',
+    primary: '#0068aa',
+    secondary: '#f7853a',
+    // tertiary: '#969aa5',
+    tertiary: '#f7853a',
     borderColor: '#212124',
-    hoverPrimary: '#26adbf',
+    hoverPrimary: '#004c7d',
     primaryRGB: 'rgb(36, 44, 145)',
     secodaryRGB: 'rgba(230, 230, 230, 1)',
     tertiaryRGB: 'rgb(196, 196, 196)',
@@ -74,6 +76,8 @@ const EntryPicker = () => {
   const [wesFontSize, setWesFontSize] = useState('2vw')
   const [wesPromptColor, setWesPromptColor] = useState(themes.wesClinton.primary)
 
+  const [promptClass, setPromptClass] = useState('')
+
   const handleCoreyHover = () => {
     setCoreyWidth('80%')
     setWesWidth('20%')
@@ -82,6 +86,8 @@ const EntryPicker = () => {
     setWesFontSize('1vw')
 
     setWesPromptColor(themes.coreyArnell.primary)
+
+    setPromptClass('corey-arnell')
   }
 
   const handleWesHover = () => {
@@ -92,6 +98,8 @@ const EntryPicker = () => {
     setWesFontSize('3vw')
 
     setCoreyPromptColor(themes.wesClinton.primary)
+
+    setPromptClass('wes-clinton')
   }
 
   const handleLeave = () => {
@@ -103,6 +111,8 @@ const EntryPicker = () => {
     
     setCoreyPromptColor(themes.coreyArnell.primary)
     setWesPromptColor(themes.wesClinton.primary)
+
+    setPromptClass('')
   }
 
   const handleCoreySelect = () => {
@@ -139,7 +149,7 @@ const EntryPicker = () => {
           transition: 'width 0.5s'
         }}
       >
-        <h1 style={{ fontSize: coreyFontSize, transition: 'font-size 0.5s' }}>Corey [Arnell]</h1>
+        <h1 className='corey-arnell' style={{ fontSize: coreyFontSize, transition: 'font-size 0.5s' }}>Corey [Arnell]</h1>
       </Container>
       <Container 
         fluid
@@ -159,9 +169,13 @@ const EntryPicker = () => {
           transition: 'width 0.5s'
         }}
       >
-        <h1 style={{ fontSize: wesFontSize, transition: 'font-size 0.5s' }}>Wes Clinton</h1>
+        <h1 className="glitch-static wes-clinton" style={{ fontSize: wesFontSize, transition: 'font-size 0.5s' }}>
+          <span aria-hidden="true">We$ Clinton</span>
+          We$ Clinton
+          <span aria-hidden="true">We$ Clinton</span>
+        </h1>
       </Container>
-      <h1 style={{
+      {/* <h1 className={promptClass} style={{
         zIndex: 1,
         position: 'absolute',
         textAlign: 'center',
@@ -174,7 +188,7 @@ const EntryPicker = () => {
         transition: 'background-image 0.5s'
       }}>
         Pick Your Poison
-      </h1>
+      </h1> */}
     </FluidContainer>
   )
 }
@@ -201,7 +215,7 @@ const App = () => {
       saveTheme(themes.coreyArnell)
       setProject(music.find(project => !project.wes))
     } else {
-      // Change to Wes Clinton
+      // Change to We$ Clinton
       saveTheme(themes.wesClinton)
       setProject(music.find(project => project.wes))
     }
@@ -211,7 +225,7 @@ const App = () => {
     <ThemeContext.Provider value={{ theme, saveTheme, switchTheme }}>
       <MusicContext.Provider value={{project: project, setProject: setProject}}>
         {theme ? (
-            <FluidContainer className={theme.id === 'wes-clinton' ? "wes-clinton" : "corey-arnell"} fluid style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.secondary }}>
+            <FluidContainer className={theme.id === 'wes-clinton' ? "wes-clinton" : "corey-arnell"} fluid style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.tertiary }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/music" element={<Music />} />

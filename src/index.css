@@ -10,6 +10,7 @@ body {
 
 .corey-arnell {
   font-family: 'Press Start 2P', cursive;
+  -webkit-text-stroke: 1px black;
 }
 
 code {
@@ -19,7 +20,7 @@ code {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #0bf709 #63218f;
+  scrollbar-color: #0bf709 #0068aa;
   /* font-family: 'Shizuru', cursive; */
 }
 
@@ -28,7 +29,7 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #63218f
+  background-color: #0068aa;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -72,7 +73,7 @@ code {
 }
 
 #custom-switch {
-  background-color: #0bf709;
+  background-color: #0068aa;
   border-color: transparent;
   width: 5em;
   height: 2.5em;
@@ -85,16 +86,16 @@ code {
 }
 
 #custom-switch::before {
-  color: black;
+  color: #ffffff;
   content: "W";
 }
 
 #custom-switch:checked {
-  background-color: #63218f;
+  background-color: #0bf709;
   align-items: flex-start;
 }
 
 #custom-switch:checked::before {
-  color: white;
+  color: #000000;
   content: "C";
 }

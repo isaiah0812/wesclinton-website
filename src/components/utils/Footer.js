@@ -19,18 +19,25 @@ const socials = [
 
 const FooterItem = ({ item }) => {
   const { theme } = useContext(ThemeContext);
-
   const [hovering, setHovering] = useState(false);
+  const [color, setColor] = useState(theme.primary);
 
-  const handleHover = () => setHovering(true);
-  const handleLeave = () => setHovering(false);
+  const handleHover = () => {
+    setHovering(true);
+    setColor(theme.secondary);
+  }
+  const handleLeave = () => {
+    setHovering(false);
+    setColor(theme.primary);
+  }
 
   return (
     <a href={item.href} onMouseEnter={handleHover} onMouseLeave={handleLeave} style={{
-      margin: '0px 2em',
-      color: theme.primary,
+      margin: '0px 4em',
+      color: color,
       textDecoration: hovering ? 'underline' : 'none',
-      fontSize: '0.7em'
+      fontSize: '0.9em',
+      transform: theme.id === 'wes-clinton' ? 'scale(1.5)' : undefined
     }}>
       {item.name}
     </a>

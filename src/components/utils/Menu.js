@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { useState } from "react";
 import { Container, Image, Nav, Offcanvas } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../../App";
 import { ThemeSwitch } from "./ThemeSwitch"
 
@@ -30,9 +31,11 @@ const MenuItem = ({name, href}) => {
   const handleLeave = () => setHover(theme.primary)
 
   return (
-    <Nav.Item onMouseEnter={handleHover} onMouseLeave={handleLeave} style={{ marginBottom: 5 }}>
-      <Nav.Link className="glitch" href={href} style={{color: hover, fontSize: '1.55em'}}>
+    <Nav.Item onMouseEnter={handleHover} onMouseLeave={handleLeave} style={{ marginBottom: 5, width: 'max-content', alignSelf: 'center', margin: '0.65em' }}>
+      <Nav.Link className={theme.id === 'wes-clinton' ? "glitch" : ""} href={href} style={{color: hover, fontSize: '1.55em', padding: 0, transition: theme.id === 'wes-clinton' ? 'color 1ms' : undefined}}>
+        {theme.id === 'wes-clinton' && <span aria-hidden="true">{name}</span>}
         {name}
+        {theme.id === 'wes-clinton' && <span aria-hidden="true">{name}</span>}
       </Nav.Link>
     </Nav.Item>
   )
@@ -72,7 +75,12 @@ const Menu = () => {
       />
       <Offcanvas show={show} onHide={handleClose} placement="top" scroll style={{backgroundColor: theme.secondary}}>
         <Offcanvas.Header style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Image src={theme.id === 'wes-clinton' ? "/WesClintonLogo.PNG" : "/CoreyArnellLogo.png"} style={{ width: '10vw', minWidth: 100, maxWidth: 200, position: 'fixed', top: 0 }}/>
+          <Link to={'/'} onClick={() => {
+            handleClose()
+            window.scrollTo({top: 0, behavior: 'smooth'})
+          }}>
+            <Image src={theme.id === 'wes-clinton' ? "/WesClintonLogo.PNG" : "/CoreyArnellLogo.png"} style={{ width: '10vw', minWidth: 100, maxWidth: 200, position: 'fixed', top: 0 }}/>
+          </Link>
           <FontAwesomeIcon 
             icon={faTimes} 
             style={{ 
@@ -93,7 +101,7 @@ const Menu = () => {
           />
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Nav justify style={{ display: 'flex', flexDirection: 'column' }}>
+          <Nav className={theme.id === "wes-clinton" ? "wes-clinton" : "corey-arnell"} justify style={{ display: 'flex', flexDirection: 'column' }}>
             {pages.map((page, index) => <MenuItem key={index} name={page.name} href={page.href} />)}
           </Nav>
         </Offcanvas.Body>
