@@ -96,7 +96,7 @@
 }
 
 .glitch-static span:last-child {
-  animation: glitch 650ms linear 0ms infinite reverse;
+  animation: glitch 375ms linear 0ms infinite alternate;
   transform: translate(0.0125em, 0.025em);
 }
 

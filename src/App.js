@@ -70,13 +70,9 @@ const EntryPicker = () => {
 
   const [coreyWidth, setCoreyWidth] = useState('50%')
   const [coreyFontSize, setCoreyFontSize] = useState('2vw')
-  const [coreyPromptColor, setCoreyPromptColor] = useState(themes.coreyArnell.primary)
 
   const [wesWidth, setWesWidth] = useState('50%')
   const [wesFontSize, setWesFontSize] = useState('2vw')
-  const [wesPromptColor, setWesPromptColor] = useState(themes.wesClinton.primary)
-
-  const [promptClass, setPromptClass] = useState('')
 
   const handleCoreyHover = () => {
     setCoreyWidth('80%')
@@ -84,10 +80,6 @@ const EntryPicker = () => {
 
     setCoreyFontSize('3vw')
     setWesFontSize('1vw')
-
-    setWesPromptColor(themes.coreyArnell.primary)
-
-    setPromptClass('corey-arnell')
   }
 
   const handleWesHover = () => {
@@ -96,10 +88,6 @@ const EntryPicker = () => {
 
     setCoreyFontSize('1vw')
     setWesFontSize('3vw')
-
-    setCoreyPromptColor(themes.wesClinton.primary)
-
-    setPromptClass('wes-clinton')
   }
 
   const handleLeave = () => {
@@ -108,11 +96,6 @@ const EntryPicker = () => {
 
     setCoreyFontSize('2vw')
     setWesFontSize('2vw')
-    
-    setCoreyPromptColor(themes.coreyArnell.primary)
-    setWesPromptColor(themes.wesClinton.primary)
-
-    setPromptClass('')
   }
 
   const handleCoreySelect = () => {
