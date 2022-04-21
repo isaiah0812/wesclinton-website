@@ -33,11 +33,11 @@ const FooterItem = ({ item }) => {
 
   return (
     <a href={item.href} onMouseEnter={handleHover} onMouseLeave={handleLeave} style={{
-      margin: '0px 4em',
+      margin: '0.3em 4em',
       color: color,
       textDecoration: hovering ? 'underline' : 'none',
       fontSize: '0.9em',
-      transform: theme.id === 'wes-clinton' ? 'scale(1.5)' : undefined
+      transform: theme.id === 'wes-clinton' ? 'scale(1.5)' : undefined,
     }}>
       {item.name}
     </a>
@@ -46,7 +46,7 @@ const FooterItem = ({ item }) => {
 
 export const Footer = () => {
   return (
-    <FluidContainer style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '3%' }}>
+    <FluidContainer style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '3%', flexWrap: 'wrap' }}>
       {socials.map(social => <FooterItem item={social} />)} 
     </FluidContainer>
   );

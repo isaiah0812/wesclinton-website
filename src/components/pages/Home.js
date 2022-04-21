@@ -8,6 +8,27 @@ import { MusicContext, ThemeContext } from "../../App";
 import { Helmet } from "react-helmet";
 import CButton from "../utils/CButton";
 import header from "../../data/header";
+import styled from 'styled-components';
+
+const ResponsiveLink = styled(Nav.Link)`
+  width: ${props => props.width};
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+`
+
+const BigHeader = styled.h1`
+  font-size: ${props => props.fontSize};
+
+  @media (max-width: 700px) {
+    font-size: ${props => props.theme.id === 'wes-clinton' ? '3em' : '2em'};
+  }
+
+  @media (max-width: 400px) {
+    font-size: ${props => props.theme.id === 'wes-clinton' ? '2.5em' : '1.5em'};
+  }
+`
 
 const Home = () => {
   const { theme } = useContext(ThemeContext)
@@ -21,7 +42,7 @@ const Home = () => {
         <script async src="//www.instagram.com/embed.js"></script>
       </Helmet>
       <FluidContainer fluid style={{height: '100vh', display: 'flex', justifyContent: 'center'}}>
-        <Image src={theme.id === 'wes-clinton' ? '/CoreyAndWes.JPG' : 'westapecover.jpg'} style={{width: '100%', height: 'auto', objectFit: 'cover'}} />
+        <Image src={theme.id === 'wes-clinton' ? '/CoreyAndWes.JPG' : 'CoreyArnell.jpeg'} style={{width: '100%', height: 'auto', objectFit: 'cover'}} />
         <div style={{
           zIndex: 1,
           backgroundColor: 'rgba(11, 11, 11, 0.5)',
@@ -36,15 +57,15 @@ const Home = () => {
           textAlign: 'center',
           padding: '2%'
         }}>
-          <Image src={headerContent.image} style={{ width: '24%', margin: '1% 1%' }} />
-          <h1 className={theme.id === 'wes-clinton' ? "glitch-static" : ""} style={{width: 'max-content', transform: 'scale(1)', fontSize: theme.id === 'wes-clinton' ? '4em' : undefined}}>
+          <Image src={headerContent.image} style={{ minWidth: 200, width: '24%', margin: '1% 1%' }} />
+          <BigHeader className={theme.id === 'wes-clinton' ? "glitch-static" : ""} fontSize={theme.id === 'wes-clinton' ? '4em' : undefined} theme={theme} style={{width: 'max-content', transform: 'scale(1)'}}>
             {theme.id === 'wes-clinton' && <span aria-hidden="true">{headerContent.name}</span>}
             {headerContent.name}
             {theme.id === 'wes-clinton' && <span aria-hidden="true">{headerContent.name}</span>}
-          </h1>
-          <Nav.Link href={headerContent.url} style={{ width: '50%' }}>
+          </BigHeader>
+          <ResponsiveLink href={headerContent.url} width="50%">
             <CButton width="100%" text={headerContent.callToAction} onClick={headerContent.onClick} />
-          </Nav.Link>
+          </ResponsiveLink>
         </div>
       </FluidContainer>
       <FluidContainer style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -62,14 +83,14 @@ const Home = () => {
               />
           )}
         </Container>
-        <Nav.Link href="/music" style={{ width: '50%', position: 'relative' }}>
+        <ResponsiveLink href="/music" width="50%" style={{ position: 'relative' }}>
           <CButton width="100%" text={theme.id === 'wes-clinton' ? "Run Up My Streams" : "See All Music"} />
-        </Nav.Link>
+        </ResponsiveLink>
       </FluidContainer>
       <Container fluid style={{ textAlign: 'center', minHeight: '30vh', padding: '10%' }}>
-        <h1>
+        <BigHeader>
           {theme.id === 'wes-clinton' ? "Merch ain't here yet, baby. Be patient." : "Merchandise coming soon..."}
-        </h1>
+        </BigHeader>
       </Container>
       <Container fluid style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap' }}>
         <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CaLNa0XpkXT/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style={{ background: '#FFFFFF', border: 0, borderRadius: 3, boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin: 1, maxWidth: 540, minWidth: 326, padding: 0, width: '27em' }}>
