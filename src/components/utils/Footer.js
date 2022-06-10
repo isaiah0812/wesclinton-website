@@ -13,7 +13,7 @@ const socials = [
   },
   {
     "name": "Bandcamp",
-    "href": "https://coreyarnell.bandcamp.com/"
+    "href": "https://wesclinton.bandcamp.com/"
   },
 ]
 
