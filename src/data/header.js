@@ -2,10 +2,10 @@ import music from './music.json';
 
 const header = {
   coreyArnell: {
-    name: "Excellent",
-    image: "/excellentcover.jpg",
+    name: "Beet Tape",
+    image: "/beettape.jpg",
     url: "/music",
-    project: music.find(project => project.id === "excellent"),
+    project: music.find(project => project.id === "beet-tape"),
     callToAction: "Listen Now"
   },
   wesClinton: {

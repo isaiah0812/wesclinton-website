@@ -40,6 +40,7 @@ const Home = () => {
     <FluidContainer>
       <Helmet>
         <script async src="//www.instagram.com/embed.js"></script>
+        <title>Home - Corey [Arnell] and We$ Clinton</title>
       </Helmet>
       <FluidContainer fluid style={{height: '100vh', display: 'flex', justifyContent: 'center'}}>
         <Image src={theme.id === 'wes-clinton' ? '/CoreyAndWes.JPG' : 'CoreyArnell.jpeg'} style={{width: '100%', height: 'auto', objectFit: 'cover'}} />

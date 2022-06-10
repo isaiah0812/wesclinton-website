@@ -4,6 +4,7 @@ import music from '../../data/music.json';
 import MusicCard from "../utils/MusicCard";
 import { useContext } from "react";
 import { MusicContext, ThemeContext } from "../../App";
+import Helmet from "react-helmet";
 
 const Music = () => {
   const { theme } = useContext(ThemeContext)
@@ -24,6 +25,9 @@ const Music = () => {
   const showcaseMargins = '2% 3em'
   return (
     <FluidContainer>
+      <Helmet>
+        <title>Music - CoreyArnell! and We$ Clinton</title>
+      </Helmet>
       <FluidContainer style={{ height: '75vh', display: 'flex', justifyContent: 'center' }}>
         <Image src={selected.cover} style={{width: '100%', height: 'auto', objectFit: 'cover'}} />
         <div style={{
@@ -46,7 +50,7 @@ const Music = () => {
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
             <Image className="player-cover" src={selected.cover} style={{ height: 'auto', margin: showcaseMargins, alignSelf: 'center'}} />
             <iframe className="player-bandcamp" title="Bandcamp Player" style={{border: 0, margin: showcaseMargins, alignSelf: 'center'}} src={selected.bandcampEmbed} seamless>
-              <a href={selected.bandcampEmbed}>{selected.name} by {selected.wes ? "We$ Clinton" : "Corey [Arnell]"}</a>
+              <a href={selected.bandcampEmbed}>{selected.name} by {selected.wes ? "We$ Clinton" : "CoreyArnell!"}</a>
             </iframe>
           </div>
         </div>

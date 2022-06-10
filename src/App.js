@@ -42,7 +42,6 @@ const themes = {
     id: 'corey-arnell',
     primary: '#0068aa',
     secondary: '#f7853a',
-    // tertiary: '#969aa5',
     tertiary: '#f7853a',
     borderColor: '#212124',
     hoverPrimary: '#004c7d',
@@ -132,7 +131,7 @@ const EntryPicker = () => {
           transition: 'width 0.5s'
         }}
       >
-        <h1 className='corey-arnell' style={{ fontSize: coreyFontSize, transition: 'font-size 0.5s' }}>Corey [Arnell]</h1>
+        <h1 className='corey-arnell' style={{ fontSize: coreyFontSize, transition: 'font-size 0.5s' }}>CoreyArnell!</h1>
       </Container>
       <Container 
         fluid
@@ -158,20 +157,6 @@ const EntryPicker = () => {
           <span aria-hidden="true">We$ Clinton</span>
         </h1>
       </Container>
-      {/* <h1 className={promptClass} style={{
-        zIndex: 1,
-        position: 'absolute',
-        textAlign: 'center',
-        top: '25%',
-        backgroundImage: `linear-gradient(to right, ${coreyPromptColor}, ${wesPromptColor})`,
-        backgroundSize: '100%',
-        backgroundRepeat: 'repeat',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        transition: 'background-image 0.5s'
-      }}>
-        Pick Your Poison
-      </h1> */}
     </FluidContainer>
   )
 }
@@ -194,7 +179,7 @@ const App = () => {
 
   const switchTheme = () => {
     if (theme.id === 'wes-clinton') {
-      // Change to Corey [Arnell]
+      // Change to CoreyArnell!
       saveTheme(themes.coreyArnell)
       setProject(music.find(project => !project.wes))
     } else {
