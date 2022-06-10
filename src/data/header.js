@@ -9,10 +9,10 @@ const header = {
     callToAction: "Listen Now"
   },
   wesClinton: {
-    name: "The Wes Tape",
-    image: "/westapecover.jpg",
+    name: "My Ppl",
+    image: "/myppl.jpg",
     url: "/music",
-    project: music.find(project => project.id === "the-wes-tape"),
+    project: music.find(project => project.id === "my-ppl"),
     callToAction: "$hake Dat Ass"
   }
 }
