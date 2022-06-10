@@ -1,5 +1,14 @@
 [
   {
+    "id": "fresh-veggies",
+    "wes": true,
+    "name": "Fre$h Veggie$",
+    "cover": "/freshveggies.jpg",
+    "releaseDate": "2022-06-10T05:00:00.000Z",
+    "bandcampEmbed": "https://bandcamp.com/EmbeddedPlayer/album=2384282832/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+    "bandcamp": "https://wesclinton.bandcamp.com/album/fre-h-veggie"
+  },
+  {
     "id": "beet-tape",
     "wes": false,
     "name": "Beet Tape",
