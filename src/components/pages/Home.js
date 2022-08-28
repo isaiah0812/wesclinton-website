@@ -2,7 +2,6 @@ import { Container, Image, Nav } from "react-bootstrap";
 import FluidContainer from "../utils/FluidContainer";
 import MusicCard from "../utils/MusicCard";
 import music from '../../data/music.json';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { useContext } from "react";
 import { MusicContext, ThemeContext } from "../../App";
 import { Helmet } from "react-helmet";
@@ -40,6 +39,7 @@ const Home = () => {
     <FluidContainer>
       <Helmet>
         <script async src="//www.instagram.com/embed.js"></script>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <title>Home - Corey [Arnell] and We$ Clinton</title>
       </Helmet>
       <FluidContainer fluid style={{height: '100vh', display: 'flex', justifyContent: 'center'}}>
@@ -147,7 +147,7 @@ const Home = () => {
           </div>
         </blockquote>
         {/* Implement IG API for  */}
-        <TwitterTimelineEmbed sourceType="profile" screenName="wes_clinton" options={{height: '75vh', width: '27em'}} theme="dark" noScrollbar />
+        <a class="twitter-timeline" data-width="400" data-height="800" data-theme="dark" style={{ color: theme.primary, textDecoration: 'none' }} href="https://twitter.com/wes_clinton?ref_src=twsrc%5Etfw">{theme.id === 'wes-clinton' ? "Hold up, niggas gotta load tweets..." : "Loading Tweets..."}</a>
       </Container>
     </FluidContainer>
   )
