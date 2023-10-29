@@ -1,3 +1,4 @@
+import React, { createContext, useState, useContext } from 'react';
 import './App.css';
 import Home from './components/pages/Home';
 import FluidContainer from './components/utils/FluidContainer';
@@ -5,15 +6,22 @@ import Menu from './components/utils/Menu';
 import { Routes, Route } from 'react-router-dom';
 import Music from './components/pages/Music';
 import Merchandise from './components/pages/Merchandise';
-import { createContext } from 'react';
 import { Container } from 'react-bootstrap';
-import { useState } from 'react';
-import { useContext } from 'react';
 import music from './data/music.json'
 import { Footer } from './components/utils/Footer';
 import './transitions.css'
+import { TProject } from './types';
 
-export const commonColors = {
+type CommonColors = {
+  black: string,
+  white: string,
+  red: string,
+  blue: string,
+  green: string,
+  gray: string
+}
+
+export const commonColors: CommonColors = {
   black: '#000000',
   white: '#ffffff',
   red: '#ff0000',
@@ -22,7 +30,26 @@ export const commonColors = {
   gray: '#cccccc',
 }
 
-const themes = {
+type Theme = CommonColors & {
+  id: string,
+  primary: string,
+  secondary: string,
+  tertiary: string,
+  borderColor: string,
+  hoverPrimary: string,
+  primaryRGB: string,
+  secondaryRGB: string,
+  tertiaryRGB: string,
+  borderColorRGB: string,
+  hoverPrimaryRGB: string
+}
+
+type CWThemes = {
+  wesClinton: Theme,
+  coreyArnell: Theme
+}
+
+const themes: CWThemes = {
   wesClinton: {
     ...commonColors,
     id: 'wes-clinton',
@@ -32,7 +59,7 @@ const themes = {
     borderColor: '#212124',
     hoverPrimary: '#228b22',
     primaryRGB: 'rgb(56, 196, 10)',
-    secodaryRGB: 'rgba(24, 24, 26, 1)',
+    secondaryRGB: 'rgba(24, 24, 26, 1)',
     tertiaryRGB: 'rgb(0, 0, 0)',
     borderColorRGB: 'rgb(33, 33, 36)',
     hoverPrimaryRGB: 'rgb(34, 139, 34)'
@@ -46,20 +73,20 @@ const themes = {
     borderColor: '#212124',
     hoverPrimary: '#004c7d',
     primaryRGB: 'rgb(36, 44, 145)',
-    secodaryRGB: 'rgba(230, 230, 230, 1)',
+    secondaryRGB: 'rgba(230, 230, 230, 1)',
     tertiaryRGB: 'rgb(196, 196, 196)',
     borderColorRGB: 'rgb(33, 33, 36)',
     hoverPrimaryRGB: 'rgb(38, 173, 191)'
   }
 }
 
-export const MusicContext = createContext({
+export const MusicContext = createContext<{ project: TProject | undefined, setProject: (project: TProject) => void }>({
   project: music[0],
-  setProject: () => {}
+  setProject: (project: TProject) => {}
 })
 export const ThemeContext = createContext({
   theme: themes.wesClinton,
-  saveTheme: () => {},
+  saveTheme: (theme: Theme) => {},
   switchTheme: () => {}
 })
 
@@ -99,14 +126,14 @@ const EntryPicker = () => {
 
   const handleCoreySelect = () => {
     saveTheme(themes.coreyArnell)
-    setProject(music.find(project => !project.wes))
+    setProject(music.find(project => !project.wes) as TProject)
 
     window.sessionStorage.setItem('wes', 'false')
   }
 
   const handleWesSelect =() => {
     saveTheme(themes.wesClinton)
-    setProject(music.find(project => project.wes))
+    setProject(music.find(project => project.wes) as TProject)
 
     window.sessionStorage.setItem('wes', 'true')
   }
@@ -164,21 +191,21 @@ const EntryPicker = () => {
 const App = () => {
   const [theme, setTheme] = useState(
     window.sessionStorage.getItem('wes') === null 
-      ? false 
+      ? null 
       : window.sessionStorage.getItem('wes') === 'true' 
         ? themes.wesClinton 
         : themes.coreyArnell
   )
 
-  const [project, setProject] = useState(music.find(project => theme.id === 'wes-clinton' ? project.wes : !project.wes))
+  const [project, setProject] = useState(music.find(project => !theme || theme.id === 'wes-clinton' ? project.wes : !project.wes))
 
-  const saveTheme = (newTheme) => {
+  const saveTheme = (newTheme: Theme) => {
     setTheme(newTheme)
     window.sessionStorage.setItem('wes', newTheme.id === 'wes-clinton' ? 'true' : 'false')
   }
 
   const switchTheme = () => {
-    if (theme.id === 'wes-clinton') {
+    if (theme && theme.id === 'wes-clinton') {
       // Change to CoreyArnell!
       saveTheme(themes.coreyArnell)
       setProject(music.find(project => !project.wes))
@@ -190,10 +217,10 @@ const App = () => {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, saveTheme, switchTheme }}>
-      <MusicContext.Provider value={{project: project, setProject: setProject}}>
-        {theme ? (
-            <FluidContainer className={theme.id === 'wes-clinton' ? "wes-clinton" : "corey-arnell"} fluid style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.tertiary }}>
+    <ThemeContext.Provider value={{ theme: theme!, saveTheme, switchTheme }}>
+      <MusicContext.Provider value={{ project: project, setProject: setProject }}>
+        {typeof theme !== 'boolean' && theme ? (
+            <FluidContainer className={theme.id === 'wes-clinton' ? "wes-clinton" : "corey-arnell"} style={{ minHeight: '100vh', color: theme.primary, backgroundColor: theme.tertiary }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/music" element={<Music />} />

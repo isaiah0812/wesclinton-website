@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Nav } from "react-bootstrap";
 import Helmet from "react-helmet";
 import { ThemeContext } from "../../App";

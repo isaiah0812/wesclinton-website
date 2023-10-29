@@ -2,22 +2,23 @@ import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../App';
 import FluidContainer from './FluidContainer';
 
-const socials = [
-  {
-    "name": "Instagram",
-    "href": "https://www.instagram.com/wesxclinton"
-  },
-  {
-    "name": "Twitter",
-    "href": "https://www.twitter.com/wes_clinton"
-  },
+type SocialMedia = {
+  name: string,
+  href: string
+}
+
+const socials: SocialMedia[] = [
   {
     "name": "Bandcamp",
     "href": "https://wesclinton.bandcamp.com/"
   },
 ]
 
-const FooterItem = ({ item }) => {
+type FooterItemProps = {
+  item: SocialMedia
+}
+
+const FooterItem = ({ item }: FooterItemProps) => {
   const { theme } = useContext(ThemeContext);
   const [hovering, setHovering] = useState(false);
   const [color, setColor] = useState(theme.primary);
