@@ -1,13 +1,17 @@
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Image, Nav, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../App";
 import { ThemeSwitch } from "./ThemeSwitch"
 
-const pages = [
+type Page = {
+  name: string;
+  href: string;
+}
+
+const pages: Page[] = [
   {
     name: 'Home',
     href: '/'
@@ -22,7 +26,7 @@ const pages = [
   },
 ]
 
-const MenuItem = ({name, href}) => {
+const MenuItem = ({name, href}: Page) => {
   const {theme } = useContext(ThemeContext)
 
   const [hover, setHover] = useState(theme.primary)

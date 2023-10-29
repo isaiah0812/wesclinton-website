@@ -1,15 +1,21 @@
-import { useContext } from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../App";
 
-const MusicCard = ({id, cover, name, onClick}) => {
+type MusicCardProps = {
+  id: string,
+  cover: string,
+  name: string,
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>
+}
+
+const MusicCard = ({ id, cover, name, onClick }: MusicCardProps) => {
   const { theme } = useContext(ThemeContext)
 
   const [padding, setPadding] = useState('1%')
   const [bgColor, setBgColor] = useState('transparent')
-  const [border, setBorder] = useState(0)
+  const [border, setBorder] = useState<string | number>(0)
   const [color, setColor] = useState(theme.primary);
   const [borderRadius, setBorderRadius] = useState('1em');
 

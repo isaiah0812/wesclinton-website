@@ -2,7 +2,14 @@ import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { ThemeContext } from '../../App';
 
-const CButton = ({text, width, style}) => {
+type CButtonProps = {
+  text: string,
+  width: string | number,
+  style?: React.CSSProperties,
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+}
+
+const CButton = ({ text, width, style, onClick }: CButtonProps) => {
   const { theme } = useContext(ThemeContext);
   const [fillColor, setFillColor] = useState('transparent')
 
@@ -22,10 +29,10 @@ const CButton = ({text, width, style}) => {
 
   return (
     <div className={theme.id === 'wes-clinton' ? 'glitch-button' : ''} style={{ width: width ? width : '100%' }}>
-      <Button className={theme.id === 'wes-clinton' ? 'glitch' : ''} onMouseEnter={hover} onMouseLeave={leave} style={{
+      <Button onClick={onClick} className={theme.id === 'wes-clinton' ? 'glitch' : ''} onMouseEnter={hover} onMouseLeave={leave} style={{
         ...buttonStyle,
         transform: 'scale(1)',
-        ...style,
+        ...(style ? style : {}),
       }}>{text}</Button>
     </div>
   )
